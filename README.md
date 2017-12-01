@@ -1,0 +1,3 @@
+{!! FacebookPixel::headContent() !!}
+
+{!! FacebookPixel::bodyContent() !!}

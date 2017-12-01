@@ -1,0 +1,39 @@
+{
+  "name": "keanue/laravel-facebook-pixel",
+  "description": "A Laravel 5 package to use facebook pixel",
+  "keywords": [
+    "facebook",
+    "pixel",
+    "laravel"
+  ],
+  "homepage": "https://github.com/keanue/laravel-facebook-pixel",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Quentin Chevrier",
+      "email": "quentin.chevrier@appiway.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php" : "^5.6",
+  },
+  "autoload": {
+    "psr-4": {
+      "Keanue\\LaravelFacebookPixel\\": "src/"
+    }
+  },
+  "extra":{
+    "laravel":{
+      "providers":[
+        "Keanue\\LaravelFacebookPixel\\LaravelFacebookPixelServiceProvider"
+      ],
+      "aliases":{
+        "LaravelFacebookPixel": "Keanue\\LaravelFacebookPixel\\LaravelFacebookPixelFacade"
+      }
+    }
+  },
+  "config": {
+    "sort-packages": true
+  }
+}
