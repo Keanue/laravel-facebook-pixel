@@ -35,13 +35,15 @@ class LaravelFacebookPixel
     public function bodyContent()
     {
         $facebookPixelSqs = session()->pull('facebookPixelSqs', []);
+        $pixelCode        = "";
 
         if (count($facebookPixelSqs) > 0) {
-            $facebookPixel = array_shift($facebookPixelSqs);
-            session(['facebookPixelSqs' => $facebookPixelSqs]);
-            return "<script>fbq('track', '" . $facebookPixel["name"] . "', " . json_encode($facebookPixel["parameters"]) . ");</script>";
+            foreach ($facebookPixelSqs as $key => $facebookPixel) {
+                $pixelCode .= "fbq('track', '" . $facebookPixel["name"] . "', " . json_encode($facebookPixel["parameters"]) . ");";
+            };
+            session()->forget('facebookPixelSqs');
+            return "<script>" . $pixelCode . "</script>";
         }
-
         return "";
     }
 
